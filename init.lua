@@ -43,7 +43,9 @@ local config = {
       number = true, -- sets vim.opt.number
       spell = false, -- sets vim.opt.spell
       signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-      wrap = false, -- sets vim.opt.wrap
+      wrap = true, -- sets vim.opt.wrap
+      linebreak = true,
+      showbreak = "┈┈┈┈ "
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
@@ -171,7 +173,7 @@ local config = {
       ["<leader>w"] = false
     },
     t = {
-      -- setting a mapping to false will disable it
+      -- setting a mapping to false will disable it]
       -- ["<esc>"] = false,
     },
   },
@@ -222,6 +224,7 @@ local config = {
     end,
     treesitter = { -- overrides `require("treesitter").setup(...)`
       -- ensure_installed = { "lua" },
+      auto_install = true
     },
     -- use mason-lspconfig to configure LSP installations
     ["mason-lspconfig"] = { -- overrides `require("mason-lspconfig").setup(...)`
@@ -234,7 +237,7 @@ local config = {
     ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
       -- ensure_installed = { "python" },
     },
-    ["gruvbox"] = {
+    gruvbox = {
       undercurl = true,
       underline = true,
       bold = true,
