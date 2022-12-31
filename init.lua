@@ -126,6 +126,9 @@ local config = {
     mappings = {
       n = {
         -- ["<leader>lf"] = false -- disable formatting keymap
+        ["K"] = false,
+        ["<leader>k"] = { function() vim.lsp.buf.hover() end, desc = "Hover symbol details" }
+
       },
     },
     -- add to the global LSP on_attach function
@@ -355,6 +358,21 @@ local config = {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+    vim.cmd([[
+      " easy map for line nav
+      nnoremap <Leader>j J
+      vnoremap <Leader>j J
+
+      nmap H ^
+      vmap H ^
+      nmap L $
+      vmap L $
+
+      nmap J 5j
+      vmap J 5j
+      nmap K 5k
+      vmap K 5k
+    ]])
   end,
 }
 
