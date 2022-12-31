@@ -26,7 +26,7 @@ local config = {
   },
 
   -- Set colorscheme to use
-  colorscheme = "default_theme",
+  colorscheme = "gruvbox",
 
   -- Add highlight groups in any theme
   highlights = {
@@ -36,13 +36,16 @@ local config = {
     -- duskfox = { -- a table of overrides/changes to the duskfox theme
     --   Normal = { bg = "#000000" },
     -- },
+      gruvbox = {
+      StatusLine = { fg = "#ebdbb2", bg = "#504945" },
+    },
   },
 
   -- set vim options here (vim.<first_key>.<second_key> = value)
   options = {
     opt = {
       -- set to true or false etc.
-      relativenumber = true, -- sets vim.opt.relativenumber
+      relativenumber = false, -- sets vim.opt.relativenumber
       number = true, -- sets vim.opt.number
       spell = false, -- sets vim.opt.spell
       signcolumn = "auto", -- sets vim.opt.signcolumn to auto
@@ -57,7 +60,7 @@ local config = {
       status_diagnostics_enabled = true, -- enable diagnostics in statusline
       icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
       ui_notifications_enabled = true, -- disable notifications when toggling UI elements
-      heirline_bufferline = false, -- enable new heirline based bufferline (requires :PackerSync after changing)
+      heirline_bufferline = true, -- enable new heirline based bufferline (requires :PackerSync after changing)
     },
   },
   -- If you need more control, you can use the function()...end notation
@@ -72,12 +75,6 @@ local config = {
 
   -- Set dashboard header
   header = {
-    " █████  ███████ ████████ ██████   ██████",
-    "██   ██ ██         ██    ██   ██ ██    ██",
-    "███████ ███████    ██    ██████  ██    ██",
-    "██   ██      ██    ██    ██   ██ ██    ██",
-    "██   ██ ███████    ██    ██   ██  ██████",
-    " ",
     "    ███    ██ ██    ██ ██ ███    ███",
     "    ████   ██ ██    ██ ██ ████  ████",
     "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
@@ -88,23 +85,23 @@ local config = {
   -- Default theme configuration
   default_theme = {
     -- Modify the color palette for the default theme
-    colors = {
-      fg = "#abb2bf",
-      bg = "#1e222a",
-    },
-    highlights = function(hl) -- or a function that returns a new table of colors to set
-      local C = require "default_theme.colors"
-
-      hl.Normal = { fg = C.fg, bg = C.bg }
-
-      -- New approach instead of diagnostic_style
-      hl.DiagnosticError.italic = true
-      hl.DiagnosticHint.italic = true
-      hl.DiagnosticInfo.italic = true
-      hl.DiagnosticWarn.italic = true
-
-      return hl
-    end,
+    -- colors = {
+    --   fg = "#abb2bf",
+    --   bg = "#1e222a",
+    -- },
+    -- highlights = function(hl) -- or a function that returns a new table of colors to set
+    --   local C = require "default_theme.colors"
+    --
+    --   hl.Normal = { fg = C.fg, bg = C.bg }
+    --
+    --   -- New approach instead of diagnostic_style
+    --   hl.DiagnosticError.italic = true
+    --   hl.DiagnosticHint.italic = true
+    --   hl.DiagnosticInfo.italic = true
+    --   hl.DiagnosticWarn.italic = true
+    --
+    --   return hl
+    -- end,
     -- enable or disable highlighting for extra plugins
     plugins = {
       aerial = true,
@@ -115,7 +112,7 @@ local config = {
       highlighturl = true,
       hop = false,
       indent_blankline = true,
-      lightspeed = false,
+      lightspeed = true,
       ["neo-tree"] = true,
       notify = true,
       ["nvim-tree"] = false,
@@ -124,7 +121,7 @@ local config = {
       symbols_outline = false,
       telescope = true,
       treesitter = true,
-      vimwiki = false,
+      vimwiki = true,
       ["which-key"] = true,
     },
   },
@@ -207,7 +204,7 @@ local config = {
       ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
       ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
       -- quick save
-      -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+      ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     },
     t = {
       -- setting a mapping to false will disable it
@@ -220,6 +217,7 @@ local config = {
     init = {
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
+      { "ellisonleao/gruvbox.nvim" },
 
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
@@ -268,6 +266,23 @@ local config = {
     },
     ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
       -- ensure_installed = { "python" },
+    },
+    ["gruvbox"] = {
+      undercurl = true,
+      underline = true,
+      bold = true,
+      italic = true,
+      strikethrough = true,
+      invert_selection = false,
+      invert_signs = false,
+      invert_tabline = false,
+      invert_intend_guides = false,
+      inverse = false,
+      contrast = "hard", -- can be "hard", "soft" or empty string
+      palette_overrides = {},
+      overrides = {},
+      dim_inactive = false,
+      transparent_mode = false,
     },
   },
 
