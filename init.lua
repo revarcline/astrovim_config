@@ -183,10 +183,7 @@ local config = {
     init = {
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
-      { "ellisonleao/gruvbox.nvim" },
-      { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end },
-      { 'tpope/vim-surround' },
-      { 'vimwiki/vimwiki' },
+      ["max397574/better-escape.nvim"] = { disable = true },
 
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
@@ -198,6 +195,10 @@ local config = {
       --     require("lsp_signature").setup()
       --   end,
       -- },
+      { "ellisonleao/gruvbox.nvim" },
+      { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end },
+      { 'tpope/vim-surround' },
+      { 'vimwiki/vimwiki' },
 
       -- We also support a key value style plugin definition similar to NvChad:
       -- ["ray-x/lsp_signature.nvim"] = {
@@ -262,7 +263,7 @@ local config = {
           hide_gitignored = true,
         },
       },
-    }
+    },
   },
 
   -- LuaSnip Options
@@ -352,6 +353,26 @@ local config = {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+    vim.cmd([[
+      " copy to attached terminal using the yank(1) script:
+      " https://github.com/sunaku/home/blob/master/bin/yank
+      function! Yank(text) abort
+        let escape = system('yank', a:text)
+        if v:shell_error
+          echoerr escape
+        else
+          silent! call writefile([escape], '/dev/tty', 'b')
+        endif
+      endfunction
+      noremap <silent> <Leader>y y:<C-U>call Yank(@0)<CR>
+
+      " automatically run yank(1) whenever yanking in Vim
+      " (this snippet was contributed by Larry Sanderson)
+      function! CopyYank() abort
+        call Yank(join(v:event.regcontents, "\n"))
+      endfunction
+      autocmd TextYankPost * call CopyYank()
+    ]])
   end,
 }
 
