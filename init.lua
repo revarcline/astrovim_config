@@ -201,6 +201,7 @@ local config = {
       { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end },
       { 'tpope/vim-surround' },
       { 'vimwiki/vimwiki' },
+      { 'jabirali/vim-tmux-yank' },
 
       -- We also support a key value style plugin definition similar to NvChad:
       -- ["ray-x/lsp_signature.nvim"] = {
@@ -254,6 +255,7 @@ local config = {
       overrides = {},
       dim_inactive = true,
       transparent_mode = true,
+      clipboard = false,
     },
     ["neo-tree"] = {
       filesystem = {
@@ -353,26 +355,6 @@ local config = {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
-    vim.cmd([[
-     " copy to attached terminal using the yank(1) script:
-     " https://github.com/sunaku/home/blob/master/bin/yank
-     function! Yank(text) abort
-       let escape = system('yank', a:text)
-       if v:shell_error
-         echoerr escape
-       else
-         silent! call writefile([escape], '/dev/tty', 'b')
-       endif
-     endfunction
-     noremap <silent> <Leader>y y:<C-U>call Yank(@0)<CR>
-
-     " automatically run yank(1) whenever yanking in Vim
-     " (this snippet was contributed by Larry Sanderson)
-     function! CopyYank() abort
-       call Yank(join(v:event.regcontents, "\n\n"))
-     endfunction
-     autocmd TextYankPost * call CopyYank()
-   ]])
   end,
 }
 
