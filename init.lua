@@ -66,9 +66,9 @@ local config = {
         path_html = '~/vimwiki/site_html/',
         custom_wiki2html = 'vimwiki_markdown',
         html_filename_parameterization = 1,
-        template_ext = '.tpl'
-      } }
-
+        template_ext = '.tpl',
+      } },
+      firenvim_config = { localSettings = { ['.*'] = { takeover = "never" } } },
     },
   },
   -- If you need more control, you can use the function()...end notation
