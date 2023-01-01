@@ -174,8 +174,18 @@ local config = {
       -- quick save
       ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
       ["<leader>w"] = false,
+      ["<leader>j"] = { "J", desc = "Merge line up", noremap = true },
+      ["H"] = { "^" },
+      ["L"] = { "$" },
+      ["J"] = { "5j" },
+      ["K"] = { "5k" },
     },
     v = {
+      ["<leader>j"] = { "J", desc = "Merge line up", noremap = true },
+      ["H"] = { "^" },
+      ["L"] = { "$" },
+      ["J"] = { "5j" },
+      ["K"] = { "5k" },
     },
     t = {
       -- setting a mapping to false will disable it]
@@ -205,6 +215,8 @@ local config = {
       { 'tpope/vim-surround' },
       { 'vimwiki/vimwiki' },
       { 'jabirali/vim-tmux-yank' },
+      { 'YacineDo/mc.nvim' },
+
 
       -- We also support a key value style plugin definition similar to NvChad:
       -- ["ray-x/lsp_signature.nvim"] = {
@@ -358,20 +370,8 @@ local config = {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+    -- vimscript dump
     vim.cmd([[
-      " easy map for line nav
-      nnoremap <Leader>j J
-      vnoremap <Leader>j J
-
-      nmap H ^
-      vmap H ^
-      nmap L $
-      vmap L $
-
-      nmap J 5j
-      vmap J 5j
-      nmap K 5k
-      vmap K 5k
     ]])
   end,
 }
