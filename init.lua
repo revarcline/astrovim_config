@@ -184,8 +184,8 @@ local config = {
             ["<leader>j"] = { "J", desc = "Merge line up", noremap = true },
             ["<S-h>"] = { "^" },
             ["<S-l>"] = { "$" },
-            ["<S-k>"] = { "5j" },
-            ["<S-l>"] = { "5k" },
+            ["<S-j>"] = { "5j" },
+            ["<S-k>"] = { "5k" },
         },
         t = {
             -- setting a mapping to false will disable it]
