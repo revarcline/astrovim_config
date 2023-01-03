@@ -45,7 +45,7 @@ local config = {
       signcolumn = "auto", -- sets vim.opt.signcolumn to auto
       wrap = true, -- sets vim.opt.wrap
       linebreak = true,
-      showbreak = "┈┈┈❭"
+      showbreak = "▹▹"
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
@@ -83,11 +83,11 @@ local config = {
 
   -- Set dashboard header
   header = {
-    "    ███    ██ ██    ██ ██ ███    ███",
-    "    ████   ██ ██    ██ ██ ████  ████",
-    "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-    "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-    "    ██   ████   ████   ██ ██      ██",
+    "    ╳╳╳    ╳╳ ╳╳    ╳╳ ╳╳ ╳╳╳    ╳╳╳",
+    "    ╳╳╳╳   ╳╳ ╳╳    ╳╳ ╳╳ ╳╳╳╳  ╳╳╳╳",
+    "    ╳╳ ╳╳  ╳╳ ╳╳    ╳╳ ╳╳ ╳╳ ╳╳╳╳ ╳╳",
+    "    ╳╳  ╳╳ ╳╳  ╳╳  ╳╳  ╳╳ ╳╳  ╳╳  ╳╳",
+    "    ╳╳   ╳╳╳╳   ╳╳╳╳   ╳╳ ╳╳      ╳╳",
   },
 
 
@@ -213,10 +213,10 @@ local config = {
       { "ellisonleao/gruvbox.nvim" },
       { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end },
       { 'tpope/vim-surround' },
+      { 'tpope/vim-repeat' },
       { 'vimwiki/vimwiki' },
       { 'jabirali/vim-tmux-yank' },
-      { 'YacineDo/mc.nvim' },
-
+      { 'mg979/vim-visual-multi' },
 
       -- We also support a key value style plugin definition similar to NvChad:
       -- ["ray-x/lsp_signature.nvim"] = {
