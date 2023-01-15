@@ -70,6 +70,16 @@ local config = {
         template_ext = '.tpl',
       } },
       firenvim_config = { localSettings = { ['.*'] = { takeover = "never" } } },
+      rnvimr_enable_picker = 1,
+      rnvimr_ex_enable = 1,
+      rnvimr_presets = { { width = 0.900, height = 0.800 } },
+      rnvimr_action = {
+        ['<C-t>'] = 'NvimEdit tabedit',
+        ['<C-x>'] = 'NvimEdit split',
+        ['<C-v>'] = 'NvimEdit vsplit',
+        gw = 'JumpNvimCwd',
+        yw = 'EmitRangerCwd'
+      }
     },
   },
   -- If you need more control, you can use the function()...end notation
@@ -175,6 +185,7 @@ local config = {
       -- quick save
       ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
       ["<leader>w"] = false,
+      ["<leader>rr"] = { ":RnvimrToggle<CR>", desc = "Ranger File Browser", silent = true },
       ["<leader>j"] = { "J", desc = "Merge line up", noremap = true },
       ["<S-h>"] = { "^" },
       ["<S-l>"] = { "$" },
