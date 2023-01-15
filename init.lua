@@ -57,7 +57,7 @@ local config = {
       icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
       ui_notifications_enabled = true, -- disable notifications when toggling UI elements
       heirline_bufferline = true, -- enable new heirline based bufferline (requires :PackerSync after changing)
-      vimwiki_global_ext=0,
+      vimwiki_global_ext = 0,
       vimwiki_list = { {
         path = '~/vimwiki',
         template_path = '~/vimwiki/templates/',
@@ -216,6 +216,7 @@ local config = {
       { 'tpope/vim-surround' },
       { 'tpope/vim-repeat' },
       { 'vimwiki/vimwiki' },
+      { 'kevinhwang91/rnvimr' },
       { 'jabirali/vim-tmux-yank' },
       { 'mg979/vim-visual-multi' },
 
@@ -251,10 +252,11 @@ local config = {
     -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
     ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
       -- ensure_installed = { "prettier", "stylua" },
-        prettier = function()
+      prettier = function()
         require("null-ls").register(require("null-ls").builtins.formatting.prettier.with({
           condition = function(utils)
-            return utils.root_has_file("package.json") or utils.root_has_file(".prettierrc") or utils.root_has_file(".prettierrc.json") or utils.root_has_file(".prettierrc.js")
+            return utils.root_has_file("package.json") or utils.root_has_file(".prettierrc") or
+                utils.root_has_file(".prettierrc.json") or utils.root_has_file(".prettierrc.js")
           end
         }))
       end,
