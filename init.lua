@@ -7,23 +7,23 @@
 local config = {
 
         -- Configure AstroNvim updates
-        updater = {
-                remote = "origin", -- remote to use
-                channel = "nightly", -- "stable" or "nightly"
-                version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-                branch = "main", -- branch name (NIGHTLY ONLY)
-                commit = nil, -- commit hash (NIGHTLY ONLYe
-                pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
-                skip_prompts = false, -- skip prompts about breaking changes
-                show_changelog = true, -- show the changelog after performing an update
-                auto_reload = false, -- automatically reload and sync packer after a successful update
-                auto_quit = false, -- automatically quit the current session after a successful update
-                -- remotes = { -- easily add new remotes to track
-                --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
-                --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
-                --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
-                -- },
-        },
+    updater = {
+        remote = "origin", -- remote to use
+        channel = "nightly", -- "stable" or "nightly"
+        version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
+        branch = "main", -- branch name (NIGHTLY ONLY)
+        commit = nil, -- commit hash (NIGHTLY ONLYe
+        pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
+        skip_prompts = false, -- skip prompts about breaking changes
+        show_changelog = true, -- show the changelog after performing an update
+        auto_reload = false, -- automatically reload and sync packer after a successful update
+        auto_quit = false, -- automatically quit the current session after a successful update
+        -- remotes = { -- easily add new remotes to track
+        --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
+        --   ["remote2"] = "github_user/repo", -- GitHub user/repo shortcut,
+        --   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
+        -- },
+    },
 
         -- Set colorscheme to use
         colorscheme = "gruvbox",
@@ -79,8 +79,10 @@ local config = {
                                 ['<C-v>'] = 'NvimEdit vsplit',
                                 gw = 'JumpNvimCwd',
                                 yw = 'EmitRangerCwd'
-                        }
-                },
+                        },
+                        user_emmet_leader_key = '<C-z',
+                        user_emmet_install_global = 1
+                    },
         },
         -- If you need more control, you can use the function()...end notation
         -- options = function(local_vim)
@@ -227,6 +229,7 @@ local config = {
                         { 'tpope/vim-surround' },
                         { 'tpope/vim-repeat' },
                         { 'vimwiki/vimwiki' },
+                        { 'mattn/emmet-vim' },
                         { 'kevinhwang91/rnvimr' },
                         { 'jabirali/vim-tmux-yank' },
                         { 'mg979/vim-visual-multi' },
